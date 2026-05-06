@@ -61,18 +61,18 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Publish to VS Code Marketplace
-        run: pnpm exec vsce publish -p "${VSCE_PAT}"
+        run: pnpm exec vsce publish -p "${VSCE_PAT}" --no-dependencies
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}

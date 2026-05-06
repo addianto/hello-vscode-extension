@@ -3,7 +3,7 @@
   "displayName": "Hello, World RSE",
   "description": "A simple \"Hello, World\"-like extension",
   "version": "0.0.1",
-  "publisher": "csui-rselab",
+  "publisher": "csui-rse-lab",
   "repository": {
     "url": "https://github.com/addianto/hello-vscode-extension"
   },
