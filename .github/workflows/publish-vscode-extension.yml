@@ -39,8 +39,9 @@ jobs:
       - name: Compile
         run: pnpm run compile
 
+        # TODO: Figure out how to pin `vsce` version when invoking it via `pnpx`
       - name: Package extension (.vsix)
-        run: pnpm exec vsce package
+        run: pnpx @vscode/vsce package --no-dependencies
 
       - name: Upload VSIX artifact
         uses: actions/upload-artifact@v4
@@ -72,7 +73,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+        # TODO: Figure out how to pin `vsce` version when invoking it via `pnpx`
       - name: Publish to VS Code Marketplace
-        run: pnpm exec vsce publish -p "${VSCE_PAT}" --no-dependencies
+        run: pnpx @vscode/vsce publish -p "${VSCE_PAT}" --no-dependencies
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
